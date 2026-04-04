@@ -355,14 +355,6 @@
 
 <div class="app-layout" id="appLayout">
   <aside class="sidebar" id="sidebar">
-    <div class="cat-bar" style="padding:12px 12px 10px;border-bottom:1px solid var(--border)">
-      <span class="cat-chip all sel" onclick="filterCat('all',this)">Todas</span>
-      <span class="cat-chip onboarding"  onclick="filterCat('onboarding',this)">Onboarding</span>
-      <span class="cat-chip alocacao"    onclick="filterCat('alocacao',this)">Alocação</span>
-      <span class="cat-chip atendimento" onclick="filterCat('atendimento',this)">Atendimento</span>
-      <span class="cat-chip fee"         onclick="filterCat('fee',this)">Fee</span>
-      <span class="cat-chip compliance"  onclick="filterCat('compliance',this)">Compliance</span>
-    </div>
     <div class="rules-list" id="rulesList"></div>
     <div class="drag-handle" id="dragHandle" title="Arrastar para redimensionar"></div>
   </aside>
@@ -390,7 +382,7 @@
       <div class="btn-icon" onclick="closeModal()">✕</div>
     </div>
     <div class="modal-body">
-      <div class="form-row-3">
+      <div class="form-row">
         <div class="form-group">
           <label class="form-label">Área</label>
           <select class="form-select" id="fPrefix" onchange="updateNextCode()">
@@ -402,14 +394,9 @@
           <label class="form-label">Código (automático)</label>
           <input class="form-input" id="fCode" readonly style="background:var(--gray-100);color:var(--gray-500);cursor:not-allowed;font-family:var(--mono);font-weight:600">
         </div>
-        <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="fStatus"><option value="ativa">✅ Ativa</option><option value="inativa">⬜ Inativa</option></select></div>
       </div>
       <div class="form-group"><label class="form-label">Título *</label><input class="form-input" id="fTitle" placeholder="Nome claro e objetivo da regra"></div>
-      <div class="form-row-3">
-        <div class="form-group"><label class="form-label">Categoria</label><select class="form-select" id="fCategory"><option value="onboarding">Onboarding</option><option value="alocacao">Alocação</option><option value="atendimento">Atendimento</option><option value="fee">Fee & Cobrança</option><option value="compliance">Compliance</option></select></div>
-        <div class="form-group"><label class="form-label">Escopo</label><select class="form-select" id="fScope"><option value="ambos">WA + WM</option><option value="wa">Wealth Advisor</option><option value="wm">Wealth Management</option></select></div>
-        <div class="form-group"><label class="form-label">Criticidade</label><select class="form-select" id="fCriticidade"><option value="">Normal</option><option value="critica">🔴 Crítica</option></select></div>
-      </div>
+      <div class="form-group"><label class="form-label">Escopo</label><select class="form-select" id="fScope"><option value="ambos">WA + WM</option><option value="wa">Wealth Advisor</option><option value="wm">Wealth Management</option></select></div>
       <div class="form-group"><label class="form-label">Responsável / Área</label><input class="form-input" id="fOwner" placeholder="ex: Coordenação WS"></div>
       <div class="form-group"><label class="form-label">Resumo (tooltip)</label><input class="form-input" id="fSummary" placeholder="Uma frase descrevendo o objetivo"></div>
       <div class="form-group">
@@ -653,14 +640,11 @@ function renderList(){
       if((r.criteria||[]).some(c=>c.toLowerCase().includes(t))) hits.push('critérios');
       if(hits.length) hitLabel=`<div style="font-size:10px;color:var(--blue);margin-top:4px">🔍 em: ${hits.join(' · ')}</div>`;
     }
-    return`<div class="rule-item ${activeTabId===r.id?'active':''} ${r.status==='inativa'?'inactive-rule':''}" onclick="openRule('${r.id}')">
-      <div class="rule-item-code">${r.id}${r.status==='inativa'?' · <span style="color:var(--amber);font-size:9px;font-weight:700">INATIVA</span>':''}</div>
+    return`<div class="rule-item ${activeTabId===r.id?'active':''}" onclick="openRule('${r.id}')">
+      <div class="rule-item-code">${r.id}</div>
       <div class="rule-item-title">${hl(r.title,globalTerm)}</div>
       <div class="rule-item-badges">
-        <span class="badge ${r.category}">${CAT_LABELS[r.category]}</span>
         <span class="badge ${r.scope}">${SCOPE_LABELS[r.scope]}</span>
-        ${r.criticidade==='critica'?'<span class="badge critica">🔴 Crítica</span>':''}
-        <span class="badge ${r.status}">${r.status==='ativa'?'Ativa':'Inativa'}</span>
       </div>
       ${hitLabel}
     </div>`;
@@ -677,7 +661,7 @@ function renderHome(){
   document.getElementById('detailLayer').style.display='none';
   const term=globalTerm.toLowerCase();
   const active=rules.filter(r=>!r.deleted);
-  const total=active.length,ativas=active.filter(r=>r.status==='ativa').length,inativas=active.filter(r=>r.status==='inativa').length,criticas=active.filter(r=>r.criticidade==='critica').length;
+  const total=active.length;
   const sorted=[...active].sort((a,b)=>{let va=a[sortCol]||'',vb=b[sortCol]||'';return sortAsc?va.localeCompare(vb):vb.localeCompare(va);});
   const arr=col=>sortCol===col?(sortAsc?'↑':'↓'):'↕';
   function snippet(r){
@@ -705,9 +689,6 @@ function renderHome(){
         </div>
         <div class="home-stats">
           <div class="stat-pill"><div class="stat-num">${total}</div><div class="stat-label">Total</div></div>
-          <div class="stat-pill"><div class="stat-num" style="color:var(--green)">${ativas}</div><div class="stat-label">Ativas</div></div>
-          <div class="stat-pill"><div class="stat-num" style="color:var(--amber)">${inativas}</div><div class="stat-label">Inativas</div></div>
-          <div class="stat-pill"><div class="stat-num" style="color:var(--red)">${criticas}</div><div class="stat-label">Críticas</div></div>
         </div>
       </div>
       <div class="table-wrap">
@@ -715,20 +696,18 @@ function renderHome(){
           <thead><tr>
             <th><button class="sort-btn" onclick="setSort('id')">Código <span class="sort-icon">${arr('id')}</span></button></th>
             <th><button class="sort-btn" onclick="setSort('title')">Nome / Resumo <span class="sort-icon">${arr('title')}</span></button></th>
-            <th><button class="sort-btn" onclick="setSort('category')">Categoria <span class="sort-icon">${arr('category')}</span></button></th>
             <th><button class="sort-btn" onclick="setSort('scope')">Escopo <span class="sort-icon">${arr('scope')}</span></button></th>
-            <th>Criticidade</th>
-            <th><button class="sort-btn" onclick="setSort('status')">Status <span class="sort-icon">${arr('status')}</span></button></th>
+            <th><button class="sort-btn" onclick="setSort('createdAt')">Criado em <span class="sort-icon">${arr('createdAt')}</span></button></th>
+            <th><button class="sort-btn" onclick="setSort('updatedAt')">Última modificação <span class="sort-icon">${arr('updatedAt')}</span></button></th>
           </tr></thead>
           <tbody>${sorted.map(r=>{
             const visible=rowVisible(r);
-            return`<tr class="${r.status==='inativa'?'row-inactive':''} ${visible?'':'row-hidden'}" onclick="openRule('${r.id}')">
+            return`<tr class="${visible?'':'row-hidden'}" onclick="openRule('${r.id}')">
               <td class="td-code">${hl(r.id,globalTerm)}</td>
               <td><div class="td-title">${hl(r.title,globalTerm)}</div><div class="td-desc">${hl(r.summary,globalTerm)}</div>${snippet(r)}</td>
-              <td class="td-badges"><span class="badge ${r.category}">${CAT_LABELS[r.category]}</span></td>
               <td class="td-badges"><span class="badge ${r.scope}">${SCOPE_LABELS[r.scope]}</span></td>
-              <td>${r.criticidade==='critica'?'<span class="badge critica">🔴 Crítica</span>':'<span style="color:var(--gray-300);font-size:12px">—</span>'}</td>
-              <td><span class="badge ${r.status}">${r.status==='ativa'?'Ativa':'Inativa'}</span></td>
+              <td style="font-size:12px;color:var(--gray-500);white-space:nowrap">${fmtDatetime(r.createdAt)}</td>
+              <td style="font-size:12px;color:var(--gray-500);white-space:nowrap">${fmtDatetime(r.updatedAt)}</td>
             </tr>`;
           }).join('')}
           </tbody>
@@ -772,9 +751,8 @@ function renderTabs(){
         </div>`;
       }
       const r=rules.find(x=>x.id===t.id);if(!r)return'';
-      return`<div class="tab ${activeTabId===t.id?'active':''} ${r.status==='inativa'?'tab-inactive':''}" onclick="switchTab('${t.id}')">
+      return`<div class="tab ${activeTabId===t.id?'active':''}" onclick="switchTab('${t.id}')">
         <span style="font-family:var(--mono);font-size:9px;opacity:.5;flex-shrink:0">${r.id}</span>
-        ${r.status==='inativa'?'<span title="Regra inativa">⚠️</span>':''}
         <span class="tab-label">${r.title}</span>
         <span class="tab-close" onclick="closeTab('${t.id}',event)">✕</span>
       </div>`;
@@ -790,9 +768,8 @@ function renderContent(){
   document.getElementById('detailLayer').style.display='';
   if(!activeTabId){goHome();return;}
   const rule=rules.find(r=>r.id===activeTabId);if(!rule)return;
-  const isInactive=rule.status==='inativa';
-  const citedBy=rules.filter(r=>r.id!==rule.id&&((r.related||[]).includes(rule.id)||(r.definition||'').includes(`[[${rule.id}]]`)));
-  const relatedRules=(rule.related||[]).map(id=>rules.find(r=>r.id===id)).filter(Boolean);
+  const citedBy=rules.filter(r=>!r.deleted&&r.id!==rule.id&&((r.related||[]).includes(rule.id)||(r.definition||'').includes(`[[${rule.id}]]`)));
+  const relatedRules=(rule.related||[]).map(id=>rules.find(r=>r.id===id&&!r.deleted)).filter(Boolean);
   const defHtml=processRef(rule.definition||'');
   const hasCriteria=(rule.criteria||[]).length>0;
   const hasRelated=relatedRules.length>0;
@@ -804,19 +781,16 @@ function renderContent(){
           <div class="btn-icon" title="Voltar à tabela geral" onclick="goHome()">⊞</div>
         </div>
         <div class="rule-meta-line">
-          <span class="rule-code-badge"><span class="status-dot ${rule.status}"></span>${rule.id}</span>
-          <span class="badge ${rule.category}">${CAT_LABELS[rule.category]}</span>
+          <span class="rule-code-badge">${rule.id}</span>
           <span class="badge ${rule.scope}">${SCOPE_LABELS[rule.scope]}</span>
-          ${rule.criticidade==='critica'?'<span class="badge critica">🔴 Crítica</span>':''}
-          <span class="badge ${rule.status}">${rule.status==='ativa'?'Ativa':'Inativa'}</span>
         </div>
         <div class="rule-title">${rule.title}</div>
         <div class="rule-owners">
           <span class="owner-tag">👤 ${rule.owner}</span>
-          <span class="owner-tag">📅 Atualizada em ${fmtDate(rule.updatedAt)}</span>
+          <span class="owner-tag">🕐 Criado em ${fmtDatetime(rule.createdAt)}</span>
+          <span class="owner-tag">✏️ Modificado em ${fmtDatetime(rule.updatedAt)}</span>
         </div>
       </div>
-      ${isInactive?`<div class="inactive-banner">⚠️ <strong>Regra inativa.</strong>&nbsp; Esta regra não está mais em vigor.</div>`:''}
       <div class="cards-grid">
         <div class="info-card full">
           <div class="card-title">📌 Resumo executivo</div>
@@ -834,36 +808,23 @@ function renderContent(){
         ${hasRelated?`
         <div class="info-card ${hasCriteria?'col-right':'full'}">
           <div class="card-title">🔗 Regras Relacionadas</div>
-          <div class="related-list">${relatedRules.map(rel=>{
-            const ri=rel.status==='inativa';
-            return`<div class="related-item ${ri?'rel-inactive':''}" onclick="openRule('${rel.id}')">
+          <div class="related-list">${relatedRules.map(rel=>`
+            <div class="related-item" onclick="openRule('${rel.id}')">
               <span class="related-code">${rel.id}</span>
-              <span class="related-title">${rel.title}${ri?' <span style="font-size:10px;color:var(--amber);font-weight:600">(inativa)</span>':''}</span>
+              <span class="related-title">${rel.title}</span>
               <span class="badge ${rel.scope}" style="flex-shrink:0">${SCOPE_LABELS[rel.scope]}</span>
               <span class="related-arrow">→</span>
-            </div>`;
-          }).join('')}</div>
+            </div>`).join('')}</div>
         </div>`:''}
         ${citedBy.length?`
-        <div class="${isInactive?'impact-card':'cited-card'}">
-          <div class="card-title">${isInactive?'⚠️ Impacto — regras que citam esta':'📎 Citada nas regras'}</div>
-          ${isInactive?`<p class="impact-warn-text">As regras abaixo referenciam <strong>${rule.id}</strong>. Revise se precisam ser atualizadas.</p>`:''}
-          <div class="impact-list">${citedBy.map(ref=>{
-            const ri=ref.status==='inativa';
-            return isInactive
-              ?`<div class="impact-item" onclick="openRule('${ref.id}')">
-                  <span class="impact-code">${ref.id}</span>
-                  <div class="impact-body"><div class="impact-title">${ref.title}${ri?' <span style="font-size:10px;color:var(--gray-400)">(também inativa)</span>':''}</div><div class="impact-sub">${ref.summary}</div></div>
-                  <span class="badge ${ref.category}">${CAT_LABELS[ref.category]}</span>
-                  <span class="impact-arrow">→</span>
-                </div>`
-              :`<div class="cited-item" onclick="openRule('${ref.id}')">
-                  <span class="cited-code">${ref.id}</span>
-                  <div class="impact-body"><div class="impact-title">${ref.title}${ri?' <span style="font-size:10px;color:var(--amber)">(inativa)</span>':''}</div><div class="impact-sub">${ref.summary}</div></div>
-                  <span class="badge ${ref.category}">${CAT_LABELS[ref.category]}</span>
-                  <span class="cited-arrow">→</span>
-                </div>`;
-          }).join('')}</div>
+        <div class="cited-card">
+          <div class="card-title">📎 Citada nas regras</div>
+          <div class="impact-list">${citedBy.map(ref=>`
+            <div class="cited-item" onclick="openRule('${ref.id}')">
+              <span class="cited-code">${ref.id}</span>
+              <div class="impact-body"><div class="impact-title">${ref.title}</div><div class="impact-sub">${ref.summary}</div></div>
+              <span class="cited-arrow">→</span>
+            </div>`).join('')}</div>
         </div>`:''}
       </div>
     </div>`;
@@ -940,19 +901,26 @@ function processRef(text){
     if(!ref)return`<span class="rule-ref ref-active">${display}</span>`;
     const inactive=ref.status==='inativa';
     return`<span class="tooltip-container">
-      <span class="rule-ref ${inactive?'ref-inactive':'ref-active'}" onclick="openRule('${id}')">${inactive?'⚠ ':''}${display}</span>
-      <div class="tooltip-box ${inactive?'tt-warn':''}">
-        <div class="tt-code">${ref.id}${inactive?' <span class="tt-inactive-label">INATIVA</span>':''}</div>
+      <span class="rule-ref ref-active" onclick="openRule('${id}')">${display}</span>
+      <div class="tooltip-box">
+        <div class="tt-code">${ref.id}</div>
         <div class="tt-title">${ref.title}</div>
         <div class="tt-summary">${ref.summary}</div>
-        <div class="tt-scope"><span class="badge ${ref.category}" style="font-size:10px">${CAT_LABELS[ref.category]}</span><span class="badge ${ref.scope}" style="font-size:10px">${SCOPE_LABELS[ref.scope]}</span></div>
-        ${inactive?'<div class="tt-hint-warn">⚠ Regra inativa. Clique para ver o impacto.</div>':'<div class="tt-hint">↗ Clique para abrir em nova aba</div>'}
+        <div class="tt-scope"><span class="badge ${ref.scope}" style="font-size:10px">${SCOPE_LABELS[ref.scope]}</span></div>
+        <div class="tt-hint">↗ Clique para abrir em nova aba</div>
       </div>
     </span>`;
   });
 }
 
 function fmtDate(d){if(!d)return'—';const[y,m,di]=d.split('-');return`${di}/${m}/${y}`;}
+function fmtDatetime(d){
+  if(!d)return'—';
+  // suporta ISO completo (2025-03-15T14:32:00.000Z) ou apenas data (2025-03-15)
+  const dt=new Date(d);
+  if(isNaN(dt))return d;
+  return dt.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
 
 // ── DRAG HANDLE ──
 function initDrag(){
@@ -994,8 +962,7 @@ function closeModal(){ document.getElementById('modalOverlay').classList.remove(
 function overlayClick(e){ if(e.target===document.getElementById('modalOverlay'))closeModal(); }
 function clearForm(){
   ['fTitle','fOwner','fSummary','fDefinition','fCriteria','fRelated'].forEach(i=>document.getElementById(i).value='');
-  document.getElementById('fStatus').value='ativa';document.getElementById('fCategory').value='onboarding';
-  document.getElementById('fScope').value='ambos';document.getElementById('fCriticidade').value='';
+  document.getElementById('fScope').value='ambos';
   document.getElementById('fPrefix').value='WS';
 }
 
@@ -1006,7 +973,8 @@ async function saveRule(){
   if(rules.find(r=>r.id===code && !r.deleted)){alert(`Código ${code} já existe.`);return;}
   const cr=document.getElementById('fCriteria').value.trim();
   const rel=document.getElementById('fRelated').value.trim();
-  const newRule={id:code,title,category:document.getElementById('fCategory').value,scope:document.getElementById('fScope').value,status:document.getElementById('fStatus').value,criticidade:document.getElementById('fCriticidade').value,owner:document.getElementById('fOwner').value.trim()||'Não definido',updatedAt:new Date().toISOString().split('T')[0],summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
+  const now=new Date().toISOString();
+  const newRule={id:code,title,scope:document.getElementById('fScope').value,owner:document.getElementById('fOwner').value.trim()||'Não definido',createdAt:now,updatedAt:now,summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
   rules.push(newRule);
   setSaving(true);
   const ok=await saveToGitHub('add rule '+code);
@@ -1022,9 +990,9 @@ function editRule(id){
   document.getElementById('fPrefix').closest('.form-group').style.display='none';
   document.getElementById('fCode').value=rule.id;
   document.getElementById('fCode').style.cursor='not-allowed';
-  document.getElementById('fTitle').value=rule.title;document.getElementById('fStatus').value=rule.status;
-  document.getElementById('fCategory').value=rule.category;document.getElementById('fScope').value=rule.scope||'ambos';
-  document.getElementById('fCriticidade').value=rule.criticidade||'';document.getElementById('fOwner').value=rule.owner;
+  document.getElementById('fTitle').value=rule.title;
+  document.getElementById('fScope').value=rule.scope||'ambos';
+  document.getElementById('fOwner').value=rule.owner;
   document.getElementById('fSummary').value=rule.summary;document.getElementById('fDefinition').value=rule.definition;
   document.getElementById('fCriteria').value=(rule.criteria||[]).join('\n');document.getElementById('fRelated').value=(rule.related||[]).join(', ');
   document.getElementById('modalTitle').textContent='Editar — '+rule.id;
@@ -1040,7 +1008,7 @@ async function updateRule(id){
   const cr=document.getElementById('fCriteria').value.trim();
   const rel=document.getElementById('fRelated').value.trim();
   const prev={...rules[idx]};
-  rules[idx]={...rules[idx],title:document.getElementById('fTitle').value.trim(),category:document.getElementById('fCategory').value,scope:document.getElementById('fScope').value,status:document.getElementById('fStatus').value,criticidade:document.getElementById('fCriticidade').value,owner:document.getElementById('fOwner').value.trim(),updatedAt:new Date().toISOString().split('T')[0],summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
+  rules[idx]={...rules[idx],title:document.getElementById('fTitle').value.trim(),scope:document.getElementById('fScope').value,owner:document.getElementById('fOwner').value.trim(),updatedAt:new Date().toISOString(),summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
   setSaving(true);
   const ok=await saveToGitHub('update rule '+id);
   setSaving(false);
