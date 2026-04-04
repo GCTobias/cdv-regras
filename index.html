@@ -966,7 +966,7 @@ function initDrag(){
 // ── CÓDIGO AUTOMÁTICO ──
 function updateNextCode(){
   const prefix = document.getElementById('fPrefix').value;
-  const pad = n => String(n).padStart(3,'0');
+  const pad = n => String(n).padStart(4,'0');
   // considera todas as regras (incluindo deletadas) para o número nunca repetir
   const nums = rules
     .filter(r => r.id && r.id.startsWith(prefix+'-'))
