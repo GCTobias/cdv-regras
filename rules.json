@@ -304,6 +304,8 @@
     "summary": "",
     "definition": "sáida",
     "criteria": [],
-    "related": []
+    "related": [],
+    "deleted": true,
+    "deletedAt": "2026-04-04"
   }
 ]
