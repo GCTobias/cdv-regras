@@ -390,8 +390,18 @@
       <div class="btn-icon" onclick="closeModal()">✕</div>
     </div>
     <div class="modal-body">
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Código *</label><input class="form-input" id="fCode" placeholder="ex: WS-013" maxlength="12"></div>
+      <div class="form-row-3">
+        <div class="form-group">
+          <label class="form-label">Área</label>
+          <select class="form-select" id="fPrefix" onchange="updateNextCode()">
+            <option value="WS">Wealth Services (WS)</option>
+            <option value="CDV">Geral CDV (CDV)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Código (automático)</label>
+          <input class="form-input" id="fCode" readonly style="background:var(--gray-100);color:var(--gray-500);cursor:not-allowed;font-family:var(--mono);font-weight:600">
+        </div>
         <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="fStatus"><option value="ativa">✅ Ativa</option><option value="inativa">⬜ Inativa</option></select></div>
       </div>
       <div class="form-group"><label class="form-label">Título *</label><input class="form-input" id="fTitle" placeholder="Nome claro e objetivo da regra"></div>
@@ -557,7 +567,7 @@ async function loadRules(){
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();
     _ghSha = data.sha;
-    rules = JSON.parse(atob(data.content.replace(/\n/g,'')));
+    rules = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,'')))));
     showToast(rules.length+' regras carregadas','ok');
   } catch(e){
     showToast('Erro ao carregar: '+e.message,'err');
@@ -622,6 +632,7 @@ function renderList(){
   const el=document.getElementById('rulesList');
   const term=globalTerm.toLowerCase();
   const filtered=rules.filter(r=>{
+    if(r.deleted) return false;
     const catOk=activeCat==='all'||r.category===activeCat;
     if(!term) return catOk;
     const matchTitle=r.id.toLowerCase().includes(term)||r.title.toLowerCase().includes(term);
@@ -665,8 +676,9 @@ function renderHome(){
   document.getElementById('homeLayer').style.display='';
   document.getElementById('detailLayer').style.display='none';
   const term=globalTerm.toLowerCase();
-  const total=rules.length,ativas=rules.filter(r=>r.status==='ativa').length,inativas=rules.filter(r=>r.status==='inativa').length,criticas=rules.filter(r=>r.criticidade==='critica').length;
-  const sorted=[...rules].sort((a,b)=>{let va=a[sortCol]||'',vb=b[sortCol]||'';return sortAsc?va.localeCompare(vb):vb.localeCompare(va);});
+  const active=rules.filter(r=>!r.deleted);
+  const total=active.length,ativas=active.filter(r=>r.status==='ativa').length,inativas=active.filter(r=>r.status==='inativa').length,criticas=active.filter(r=>r.criticidade==='critica').length;
+  const sorted=[...active].sort((a,b)=>{let va=a[sortCol]||'',vb=b[sortCol]||'';return sortAsc?va.localeCompare(vb):vb.localeCompare(va);});
   const arr=col=>sortCol===col?(sortAsc?'↑':'↓'):'↕';
   function snippet(r){
     if(!term) return '';
@@ -951,31 +963,47 @@ function initDrag(){
   document.addEventListener('mouseup',()=>{if(!drag)return;drag=false;handle.classList.remove('dragging');document.body.style.cursor='';document.body.style.userSelect='';});
 }
 
+// ── CÓDIGO AUTOMÁTICO ──
+function updateNextCode(){
+  const prefix = document.getElementById('fPrefix').value;
+  const pad = n => String(n).padStart(3,'0');
+  // considera todas as regras (incluindo deletadas) para o número nunca repetir
+  const nums = rules
+    .filter(r => r.id && r.id.startsWith(prefix+'-'))
+    .map(r => parseInt(r.id.split('-')[1]) || 0);
+  const next = nums.length ? Math.max(...nums) + 1 : 1;
+  document.getElementById('fCode').value = prefix+'-'+pad(next);
+}
+
 // ── MODAL ──
 function openModal(){
   clearForm();
   _editingId=null;
-  document.getElementById('modalTitle').textContent='Nova Regra — WS';
+  document.getElementById('modalTitle').textContent='Nova Regra';
   document.getElementById('modalDeleteBtn').style.display='none';
+  document.getElementById('fPrefix').style.display='';
+  document.getElementById('fPrefix').closest('.form-group').style.display='';
+  document.getElementById('fCode').style.cursor='not-allowed';
   document.getElementById('modalSaveBtn').onclick=saveRule;
   document.getElementById('modalSaveBtn').textContent='Salvar Regra';
   document.getElementById('modalOverlay').classList.add('open');
-  setTimeout(()=>document.getElementById('fCode').focus(),100);
+  updateNextCode();
+  setTimeout(()=>document.getElementById('fTitle').focus(),100);
 }
 function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); _editingId=null; }
 function overlayClick(e){ if(e.target===document.getElementById('modalOverlay'))closeModal(); }
 function clearForm(){
-  ['fCode','fTitle','fOwner','fSummary','fDefinition','fCriteria','fRelated'].forEach(i=>document.getElementById(i).value='');
+  ['fTitle','fOwner','fSummary','fDefinition','fCriteria','fRelated'].forEach(i=>document.getElementById(i).value='');
   document.getElementById('fStatus').value='ativa';document.getElementById('fCategory').value='onboarding';
   document.getElementById('fScope').value='ambos';document.getElementById('fCriticidade').value='';
-  document.getElementById('fCode').readOnly=false;
+  document.getElementById('fPrefix').value='WS';
 }
 
 async function saveRule(){
   const code=document.getElementById('fCode').value.trim().toUpperCase();
   const title=document.getElementById('fTitle').value.trim();
-  if(!code||!title){alert('Código e título são obrigatórios.');return;}
-  if(rules.find(r=>r.id===code)){alert(`Código ${code} já existe.`);return;}
+  if(!code||!title){alert('Título é obrigatório.');return;}
+  if(rules.find(r=>r.id===code && !r.deleted)){alert(`Código ${code} já existe.`);return;}
   const cr=document.getElementById('fCriteria').value.trim();
   const rel=document.getElementById('fRelated').value.trim();
   const newRule={id:code,title,category:document.getElementById('fCategory').value,scope:document.getElementById('fScope').value,status:document.getElementById('fStatus').value,criticidade:document.getElementById('fCriticidade').value,owner:document.getElementById('fOwner').value.trim()||'Não definido',updatedAt:new Date().toISOString().split('T')[0],summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
@@ -990,7 +1018,10 @@ async function saveRule(){
 function editRule(id){
   const rule=rules.find(r=>r.id===id);if(!rule)return;
   _editingId=id;
-  document.getElementById('fCode').value=rule.id;document.getElementById('fCode').readOnly=true;
+  // esconde seletor de área ao editar — código já está fixo
+  document.getElementById('fPrefix').closest('.form-group').style.display='none';
+  document.getElementById('fCode').value=rule.id;
+  document.getElementById('fCode').style.cursor='not-allowed';
   document.getElementById('fTitle').value=rule.title;document.getElementById('fStatus').value=rule.status;
   document.getElementById('fCategory').value=rule.category;document.getElementById('fScope').value=rule.scope||'ambos';
   document.getElementById('fCriticidade').value=rule.criticidade||'';document.getElementById('fOwner').value=rule.owner;
@@ -1019,12 +1050,13 @@ async function updateRule(id){
 
 async function deleteCurrentRule(){
   const id=_editingId;if(!id)return;
-  if(!confirm(`Excluir permanentemente a regra ${id}?\n\nEssa ação não pode ser desfeita.`))return;
+  if(!confirm(`Arquivar a regra ${id}?\n\nEla deixará de aparecer no app, mas ficará salva no histórico.\nO próximo código dessa série será sempre maior que este.`))return;
   const idx=rules.findIndex(r=>r.id===id);if(idx===-1)return;
-  const prev=rules[idx];
-  rules.splice(idx,1);
+  const prev={...rules[idx]};
+  rules[idx].deleted=true;
+  rules[idx].deletedAt=new Date().toISOString().split('T')[0];
   document.getElementById('modalDeleteBtn').disabled=true;
-  const ok=await saveToGitHub('delete rule '+id);
+  const ok=await saveToGitHub('archive rule '+id);
   if(ok){
     closeModal();
     const ti=tabs.findIndex(t=>t.id===id);
@@ -1033,7 +1065,7 @@ async function deleteCurrentRule(){
     renderTabs();renderList();
     if(!activeTabId)goHome();else renderContent();
   } else {
-    rules.splice(idx,0,prev);
+    rules[idx]=prev;
     document.getElementById('modalDeleteBtn').disabled=false;
   }
 }
