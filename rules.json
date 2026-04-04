@@ -291,5 +291,19 @@
       "WS-001",
       "WS-009"
     ]
+  },
+  {
+    "id": "WS-013",
+    "title": "tes",
+    "category": "onboarding",
+    "scope": "ambos",
+    "status": "ativa",
+    "criticidade": "",
+    "owner": "sáida",
+    "updatedAt": "2026-04-04",
+    "summary": "",
+    "definition": "sáida",
+    "criteria": [],
+    "related": []
   }
 ]
