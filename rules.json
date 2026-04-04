@@ -4,8 +4,8 @@
     "title": "Patrimônio Mínimo para Acesso ao Wealth Services",
     "scope": "ambos",
     "owner": "Coordenação WS",
-    "createdAt": "2025-03-15T09:00:00.000Z",
-    "updatedAt": "2025-03-15T09:00:00.000Z",
+    "createdAt": "2026-04-04T10:00:00.000Z",
+    "updatedAt": "2026-04-04T10:00:00.000Z",
     "summary": "Define o volume patrimonial mínimo investível para elegibilidade ao WA ou WM.",
     "definition": "Somente clientes com patrimônio investível mínimo de R$ 300.000 são elegíveis ao Wealth Advisor. Para o Wealth Management, o mínimo é R$ 1.000.000. O patrimônio investível exclui imóveis e ativos ilíquidos, salvo aprovação da coordenação.",
     "criteria": [
@@ -21,8 +21,8 @@
     "title": "Modelo de Remuneração Fee-Based e Transparência",
     "scope": "ambos",
     "owner": "Financeiro / Compliance",
-    "createdAt": "2025-03-15T09:10:00.000Z",
-    "updatedAt": "2025-03-15T09:10:00.000Z",
+    "createdAt": "2026-04-04T10:05:00.000Z",
+    "updatedAt": "2026-04-04T10:05:00.000Z",
     "summary": "Fee-based sobre patrimônio, vedação a comissões e cashback 100% ao cliente.",
     "definition": "O CDV opera 100% no modelo fee-based: percentual pré-acordado sobre o volume de ativos. É vedado receber comissionamento, rebate ou bonificação de terceiros. O cashback é integralmente revertido ao cliente.",
     "criteria": [
@@ -38,8 +38,8 @@
     "title": "Código de Conduta e Ética Profissional",
     "scope": "ambos",
     "owner": "Diretoria / Compliance",
-    "createdAt": "2025-03-15T09:20:00.000Z",
-    "updatedAt": "2025-03-15T09:20:00.000Z",
+    "createdAt": "2026-04-04T10:10:00.000Z",
+    "updatedAt": "2026-04-04T10:10:00.000Z",
     "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
     "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar.",
     "criteria": [
