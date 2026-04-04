@@ -1,21 +1,21 @@
 [
   {
     "id": "WS-001",
-    "title": "PatrimÃ´nio MÃ­nimo para Acesso ao Wealth Services",
+    "title": "PatrimÃÂ´nio MÃÂ­nimo para Acesso ao Wealth Services",
     "category": "onboarding",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "critica",
-    "owner": "CoordenaÃ§Ã£o WS",
+    "owner": "CoordenaÃÂ§ÃÂ£o WS",
     "updatedAt": "2025-03-15",
-    "summary": "Define o volume patrimonial mÃ­nimo investÃ­vel para elegibilidade ao WA ou WM.",
-    "definition": "Somente clientes com patrimÃ´nio investÃ­vel mÃ­nimo de R$ 300.000 sÃ£o elegÃ­veis ao Wealth Advisor. Para o Wealth Management, o mÃ­nimo Ã© R$ 1.000.000. O patrimÃ´nio investÃ­vel exclui imÃ³veis e ativos ilÃ­quidos, salvo aprovaÃ§Ã£o da coordenaÃ§Ã£o. Casos limÃ­trofes seguem [[WS-009]]. Clientes que reduzem o patrimÃ´nio abaixo do mÃ­nimo passam pelo processo descrito em [[WS-008]].",
+    "summary": "Define o volume patrimonial mÃÂ­nimo investÃÂ­vel para elegibilidade ao WA ou WM.",
+    "definition": "Somente clientes com patrimÃÂ´nio investÃÂ­vel mÃÂ­nimo de R$ 300.000 sÃÂ£o elegÃÂ­veis ao Wealth Advisor. Para o Wealth Management, o mÃÂ­nimo ÃÂ© R$ 1.000.000. O patrimÃÂ´nio investÃÂ­vel exclui imÃÂ³veis e ativos ilÃÂ­quidos, salvo aprovaÃÂ§ÃÂ£o da coordenaÃÂ§ÃÂ£o. Casos limÃÂ­trofes seguem [[WS-009]]. Clientes que reduzem o patrimÃÂ´nio abaixo do mÃÂ­nimo passam pelo processo descrito em [[WS-008]].",
     "criteria": [
-      "Wealth Advisor: mÃ­nimo R$ 300.000 investÃ­vel",
-      "Wealth Management: mÃ­nimo R$ 1.000.000 investÃ­vel",
-      "ImÃ³veis/ativos ilÃ­quidos nÃ£o computam sem aprovaÃ§Ã£o",
-      "ComprovaÃ§Ã£o obrigatÃ³ria antes da contrataÃ§Ã£o",
-      "Casos limÃ­trofes: escalar para coordenaÃ§Ã£o (WS-009)"
+      "Wealth Advisor: mÃÂ­nimo R$ 300.000 investÃÂ­vel",
+      "Wealth Management: mÃÂ­nimo R$ 1.000.000 investÃÂ­vel",
+      "ImÃÂ³veis/ativos ilÃÂ­quidos nÃÂ£o computam sem aprovaÃÂ§ÃÂ£o",
+      "ComprovaÃÂ§ÃÂ£o obrigatÃÂ³ria antes da contrataÃÂ§ÃÂ£o",
+      "Casos limÃÂ­trofes: escalar para coordenaÃÂ§ÃÂ£o (WS-009)"
     ],
     "related": [
       "WS-002",
@@ -25,22 +25,22 @@
   },
   {
     "id": "WS-002",
-    "title": "Processo de Onboarding e AtivaÃ§Ã£o do Cliente",
+    "title": "Processo de Onboarding e AtivaÃÂ§ÃÂ£o do Cliente",
     "category": "onboarding",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "critica",
     "owner": "Equipe Wealth / CS",
     "updatedAt": "2025-03-20",
-    "summary": "Fluxo completo em 5 etapas desde aprovaÃ§Ã£o do prospect atÃ© a primeira reuniÃ£o.",
-    "definition": "O onboarding segue 5 etapas obrigatÃ³rias: (1) Elegibilidade patrimonial conforme [[WS-001]]; (2) Suitability conforme [[WS-006]]; (3) Contrato assinado em atÃ© 5 dias Ãºteis; (4) VinculaÃ§Ã£o da conta na corretora parceira; (5) ReuniÃ£o de diagnÃ³stico realizada. Prazo total mÃ¡ximo: 15 dias Ãºteis conforme [[WS-004]].",
+    "summary": "Fluxo completo em 5 etapas desde aprovaÃÂ§ÃÂ£o do prospect atÃÂ© a primeira reuniÃÂ£o.",
+    "definition": "O onboarding segue 5 etapas obrigatÃÂ³rias: (1) Elegibilidade patrimonial conforme [[WS-001]]; (2) Suitability conforme [[WS-006]]; (3) Contrato assinado em atÃÂ© 5 dias ÃÂºteis; (4) VinculaÃÂ§ÃÂ£o da conta na corretora parceira; (5) ReuniÃÂ£o de diagnÃÂ³stico realizada. Prazo total mÃÂ¡ximo: 15 dias ÃÂºteis conforme [[WS-004]].",
     "criteria": [
       "Etapa 1: elegibilidade confirmada (WS-001)",
       "Etapa 2: suitability aplicado (WS-006)",
-      "Etapa 3: contrato assinado em atÃ© 5 dias Ãºteis",
-      "Etapa 4: conta vinculada Ã  corretora",
-      "Etapa 5: reuniÃ£o de diagnÃ³stico realizada",
-      "Prazo total: mÃ¡x. 15 dias Ãºteis (WS-004)"
+      "Etapa 3: contrato assinado em atÃÂ© 5 dias ÃÂºteis",
+      "Etapa 4: conta vinculada ÃÂ  corretora",
+      "Etapa 5: reuniÃÂ£o de diagnÃÂ³stico realizada",
+      "Prazo total: mÃÂ¡x. 15 dias ÃÂºteis (WS-004)"
     ],
     "related": [
       "WS-001",
@@ -50,18 +50,18 @@
   },
   {
     "id": "WS-003",
-    "title": "Modelo de RemuneraÃ§Ã£o Fee-Based e TransparÃªncia",
+    "title": "Modelo de RemuneraÃÂ§ÃÂ£o Fee-Based e TransparÃÂªncia",
     "category": "fee",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "critica",
     "owner": "Financeiro / Compliance",
     "updatedAt": "2025-02-28",
-    "summary": "Fee-based sobre patrimÃ´nio, vedaÃ§Ã£o a comissÃµes e cashback 100% ao cliente.",
-    "definition": "O CDV opera 100% no modelo fee-based: percentual prÃ©-acordado sobre o volume de ativos. Ã vedado receber comissionamento, rebate ou bonificaÃ§Ã£o de terceiros. O cashback Ã© integralmente revertido ao cliente. Tabela de fees definida pela Diretoria â exceÃ§Ãµes via [[WS-009]]. No WM aplica-se taxa de performance sobre benchmark acordado.",
+    "summary": "Fee-based sobre patrimÃÂ´nio, vedaÃÂ§ÃÂ£o a comissÃÂµes e cashback 100% ao cliente.",
+    "definition": "O CDV opera 100% no modelo fee-based: percentual prÃÂ©-acordado sobre o volume de ativos. ÃÂ vedado receber comissionamento, rebate ou bonificaÃÂ§ÃÂ£o de terceiros. O cashback ÃÂ© integralmente revertido ao cliente. Tabela de fees definida pela Diretoria Ã¢ÂÂ exceÃÂ§ÃÂµes via [[WS-009]]. No WM aplica-se taxa de performance sobre benchmark acordado.",
     "criteria": [
-      "Fee exclusivamente sobre patrimÃ´nio",
-      "VedaÃ§Ã£o absoluta a comissÃµes de terceiros",
+      "Fee exclusivamente sobre patrimÃÂ´nio",
+      "VedaÃÂ§ÃÂ£o absoluta a comissÃÂµes de terceiros",
       "Cashback 100% revertido ao cliente",
       "Tabela de fees definida pela Diretoria",
       "WM: taxa de performance sobre benchmark"
@@ -78,15 +78,15 @@
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
-    "owner": "CoordenaÃ§Ã£o WS / CS",
+    "owner": "CoordenaÃÂ§ÃÂ£o WS / CS",
     "updatedAt": "2025-03-10",
-    "summary": "Prazos mÃ¡ximos de resposta por canal e nÃ­vel de urgÃªncia.",
-    "definition": "WhatsApp: atÃ© 4h em dias Ãºteis; urgÃªncia: atÃ© 2h. E-mail: atÃ© 1 dia Ãºtil. DÃºvidas complexas: retorno em 24h, resoluÃ§Ã£o em 3 dias Ãºteis. Mensagens apÃ³s 18h ou fim de semana: SLA inicia no prÃ³ximo dia Ãºtil. Descumprimento recorrente: escalar via [[WS-009]]. Prazos de onboarding em [[WS-002]]. CadÃªncia de reuniÃµes em [[WS-005]].",
+    "summary": "Prazos mÃÂ¡ximos de resposta por canal e nÃÂ­vel de urgÃÂªncia.",
+    "definition": "WhatsApp: atÃÂ© 4h em dias ÃÂºteis; urgÃÂªncia: atÃÂ© 2h. E-mail: atÃÂ© 1 dia ÃÂºtil. DÃÂºvidas complexas: retorno em 24h, resoluÃÂ§ÃÂ£o em 3 dias ÃÂºteis. Mensagens apÃÂ³s 18h ou fim de semana: SLA inicia no prÃÂ³ximo dia ÃÂºtil. Descumprimento recorrente: escalar via [[WS-009]]. Prazos de onboarding em [[WS-002]]. CadÃÂªncia de reuniÃÂµes em [[WS-005]].",
     "criteria": [
-      "WhatsApp (dias Ãºteis): atÃ© 4h",
-      "WhatsApp (urgÃªncia): atÃ© 2h",
-      "E-mail: atÃ© 1 dia Ãºtil",
-      "DÃºvidas complexas: resoluÃ§Ã£o em 3 dias Ãºteis",
+      "WhatsApp (dias ÃÂºteis): atÃÂ© 4h",
+      "WhatsApp (urgÃÂªncia): atÃÂ© 2h",
+      "E-mail: atÃÂ© 1 dia ÃÂºtil",
+      "DÃÂºvidas complexas: resoluÃÂ§ÃÂ£o em 3 dias ÃÂºteis",
       "Descumprimento recorrente: escalar (WS-009)"
     ],
     "related": [
@@ -97,21 +97,21 @@
   },
   {
     "id": "WS-005",
-    "title": "CadÃªncia de ReuniÃµes e Rebalanceamento de Carteira",
+    "title": "CadÃÂªncia de ReuniÃÂµes e Rebalanceamento de Carteira",
     "category": "alocacao",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
     "owner": "Equipe Wealth",
     "updatedAt": "2025-03-01",
-    "summary": "FrequÃªncia mÃ­nima de reuniÃµes e gatilhos para rebalanceamentos.",
-    "definition": "WA: reuniÃ£o trimestral. WM: reuniÃ£o mensal. Rebalanceamentos extraordinÃ¡rios quando desvio â¥ 5 p.p. na alocaÃ§Ã£o alvo ou eventos macroeconÃ´micos relevantes. Consentimento explÃ­cito do cliente antes de qualquer movimentaÃ§Ã£o. Carteira segue o SAE conforme [[WS-007]]. Registro obrigatÃ³rio no CRM conforme [[WS-010]].",
+    "summary": "FrequÃÂªncia mÃÂ­nima de reuniÃÂµes e gatilhos para rebalanceamentos.",
+    "definition": "WA: reuniÃÂ£o trimestral. WM: reuniÃÂ£o mensal. Rebalanceamentos extraordinÃÂ¡rios quando desvio Ã¢ÂÂ¥ 5 p.p. na alocaÃÂ§ÃÂ£o alvo ou eventos macroeconÃÂ´micos relevantes. Consentimento explÃÂ­cito do cliente antes de qualquer movimentaÃÂ§ÃÂ£o. Carteira segue o SAE conforme [[WS-007]]. Registro obrigatÃÂ³rio no CRM conforme [[WS-010]].",
     "criteria": [
-      "WA: reuniÃ£o trimestral mÃ­nima",
-      "WM: reuniÃ£o mensal mÃ­nima",
-      "Desvio â¥ 5 p.p.: propor rebalanceamento extraordinÃ¡rio",
-      "Consentimento explÃ­cito antes de qualquer movimentaÃ§Ã£o",
-      "Registro de toda reuniÃ£o no CRM (WS-010)"
+      "WA: reuniÃÂ£o trimestral mÃÂ­nima",
+      "WM: reuniÃÂ£o mensal mÃÂ­nima",
+      "Desvio Ã¢ÂÂ¥ 5 p.p.: propor rebalanceamento extraordinÃÂ¡rio",
+      "Consentimento explÃÂ­cito antes de qualquer movimentaÃÂ§ÃÂ£o",
+      "Registro de toda reuniÃÂ£o no CRM (WS-010)"
     ],
     "related": [
       "WS-007",
@@ -127,14 +127,14 @@
     "criticidade": "critica",
     "owner": "Compliance / Equipe Wealth",
     "updatedAt": "2025-03-18",
-    "summary": "Obrigatoriedade do suitability no onboarding, revisÃ£o anual e tratamento de produtos fora do perfil.",
-    "definition": "O suitability Ã© etapa obrigatÃ³ria do onboarding conforme [[WS-002]] e define o perfil: Conservador, Moderado, Arrojado ou Agressivo. Nenhuma recomendaÃ§Ã£o pode ser feita sem sua conclusÃ£o. RevisÃ£o anual obrigatÃ³ria ou imediata em caso de mudanÃ§a relevante. Produto fora do perfil exige ciÃªncia formal e aprovaÃ§Ã£o da coordenaÃ§Ã£o. DocumentaÃ§Ã£o disponÃ­vel para auditorias CVM/ANBIMA conforme [[WS-010]].",
+    "summary": "Obrigatoriedade do suitability no onboarding, revisÃÂ£o anual e tratamento de produtos fora do perfil.",
+    "definition": "O suitability ÃÂ© etapa obrigatÃÂ³ria do onboarding conforme [[WS-002]] e define o perfil: Conservador, Moderado, Arrojado ou Agressivo. Nenhuma recomendaÃÂ§ÃÂ£o pode ser feita sem sua conclusÃÂ£o. RevisÃÂ£o anual obrigatÃÂ³ria ou imediata em caso de mudanÃÂ§a relevante. Produto fora do perfil exige ciÃÂªncia formal e aprovaÃÂ§ÃÂ£o da coordenaÃÂ§ÃÂ£o. DocumentaÃÂ§ÃÂ£o disponÃÂ­vel para auditorias CVM/ANBIMA conforme [[WS-010]].",
     "criteria": [
-      "Suitability obrigatÃ³rio antes de qualquer recomendaÃ§Ã£o",
+      "Suitability obrigatÃÂ³rio antes de qualquer recomendaÃÂ§ÃÂ£o",
       "Perfis: Conservador, Moderado, Arrojado, Agressivo",
-      "RevisÃ£o anual do perfil",
-      "Produto fora do perfil: ciÃªncia formal + aprovaÃ§Ã£o da coordenaÃ§Ã£o",
-      "DocumentaÃ§Ã£o auditÃ¡vel (CVM/ANBIMA)"
+      "RevisÃÂ£o anual do perfil",
+      "Produto fora do perfil: ciÃÂªncia formal + aprovaÃÂ§ÃÂ£o da coordenaÃÂ§ÃÂ£o",
+      "DocumentaÃÂ§ÃÂ£o auditÃÂ¡vel (CVM/ANBIMA)"
     ],
     "related": [
       "WS-002",
@@ -143,21 +143,21 @@
   },
   {
     "id": "WS-007",
-    "title": "Sistema de AlocaÃ§Ã£o EstratÃ©gica (SAE) do CDV",
+    "title": "Sistema de AlocaÃÂ§ÃÂ£o EstratÃÂ©gica (SAE) do CDV",
     "category": "alocacao",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
-    "owner": "ComitÃª de Investimentos",
+    "owner": "ComitÃÂª de Investimentos",
     "updatedAt": "2025-02-10",
-    "summary": "Metodologia proprietÃ¡ria de asset allocation que orienta todas as carteiras WS.",
-    "definition": "O SAE Ã© a metodologia proprietÃ¡ria do CDV, desenvolvida por time CFA. Classes: Renda Fixa, RV domÃ©stica, FIIs, Internacional e Alternativos. Pesos definidos pelo perfil de risco em [[WS-006]] e objetivos do cliente. Produtos indicados por aderÃªncia ao SAE â nunca por comissionamento conforme [[WS-003]]. ConcentraÃ§Ã£o mÃ¡xima de 20% em ativo/fundo Ãºnico sem justificativa. Carteira apresentada no diagnÃ³stico ([[WS-002]]) e revisada nos rebalanceamentos ([[WS-005]]).",
+    "summary": "Metodologia proprietÃÂ¡ria de asset allocation que orienta todas as carteiras WS.",
+    "definition": "O SAE ÃÂ© a metodologia proprietÃÂ¡ria do CDV, desenvolvida por time CFA. Classes: Renda Fixa, RV domÃÂ©stica, FIIs, Internacional e Alternativos. Pesos definidos pelo perfil de risco em [[WS-006]] e objetivos do cliente. Produtos indicados por aderÃÂªncia ao SAE Ã¢ÂÂ nunca por comissionamento conforme [[WS-003]]. ConcentraÃÂ§ÃÂ£o mÃÂ¡xima de 20% em ativo/fundo ÃÂºnico sem justificativa. Carteira apresentada no diagnÃÂ³stico ([[WS-002]]) e revisada nos rebalanceamentos ([[WS-005]]).",
     "criteria": [
       "Metodologia desenvolvida por time CFA",
       "Classes: RF, RV, FIIs, Internacional, Alternativos",
       "Pesos definidos pelo perfil (WS-006) e objetivos",
-      "SeleÃ§Ã£o por aderÃªncia ao SAE â nunca por comissÃ£o (WS-003)",
-      "ConcentraÃ§Ã£o mÃ¡x.: 20% em ativo/fundo Ãºnico"
+      "SeleÃÂ§ÃÂ£o por aderÃÂªncia ao SAE Ã¢ÂÂ nunca por comissÃÂ£o (WS-003)",
+      "ConcentraÃÂ§ÃÂ£o mÃÂ¡x.: 20% em ativo/fundo ÃÂºnico"
     ],
     "related": [
       "WS-002",
@@ -168,22 +168,22 @@
   },
   {
     "id": "WS-008",
-    "title": "GestÃ£o de Clientes Abaixo do PatrimÃ´nio MÃ­nimo",
+    "title": "GestÃÂ£o de Clientes Abaixo do PatrimÃÂ´nio MÃÂ­nimo",
     "category": "onboarding",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
-    "owner": "CoordenaÃ§Ã£o WS / CS",
+    "owner": "CoordenaÃÂ§ÃÂ£o WS / CS",
     "updatedAt": "2025-01-20",
-    "summary": "Procedimento quando clientes ativos reduzem patrimÃ´nio abaixo do mÃ­nimo exigido.",
-    "definition": "Clientes que reduzem patrimÃ´nio abaixo do mÃ­nimo de [[WS-001]] devem ser notificados em 10 dias Ãºteis. PerÃ­odo de graÃ§a de 90 dias corridos para regularizaÃ§Ã£o. ServiÃ§o mantido durante o perÃ­odo. ApÃ³s 90 dias: encerramento formal com devoluÃ§Ã£o proporcional de fee conforme [[WS-003]]. RescisÃ£o reportada Ã  coordenaÃ§Ã£o conforme [[WS-009]] e registrada conforme [[WS-010]]. ReativaÃ§Ã£o futura: novo onboarding via [[WS-002]].",
+    "summary": "Procedimento quando clientes ativos reduzem patrimÃÂ´nio abaixo do mÃÂ­nimo exigido.",
+    "definition": "Clientes que reduzem patrimÃÂ´nio abaixo do mÃÂ­nimo de [[WS-001]] devem ser notificados em 10 dias ÃÂºteis. PerÃÂ­odo de graÃÂ§a de 90 dias corridos para regularizaÃÂ§ÃÂ£o. ServiÃÂ§o mantido durante o perÃÂ­odo. ApÃÂ³s 90 dias: encerramento formal com devoluÃÂ§ÃÂ£o proporcional de fee conforme [[WS-003]]. RescisÃÂ£o reportada ÃÂ  coordenaÃÂ§ÃÂ£o conforme [[WS-009]] e registrada conforme [[WS-010]]. ReativaÃÂ§ÃÂ£o futura: novo onboarding via [[WS-002]].",
     "criteria": [
-      "NotificaÃ§Ã£o em atÃ© 10 dias Ãºteis",
-      "PerÃ­odo de graÃ§a: 90 dias corridos",
-      "ServiÃ§o mantido durante os 90 dias",
-      "ApÃ³s 90 dias: encerramento formal",
+      "NotificaÃÂ§ÃÂ£o em atÃÂ© 10 dias ÃÂºteis",
+      "PerÃÂ­odo de graÃÂ§a: 90 dias corridos",
+      "ServiÃÂ§o mantido durante os 90 dias",
+      "ApÃÂ³s 90 dias: encerramento formal",
       "Fee proporcional devolvido (WS-003)",
-      "ReativaÃ§Ã£o: novo onboarding completo (WS-002)"
+      "ReativaÃÂ§ÃÂ£o: novo onboarding completo (WS-002)"
     ],
     "related": [
       "WS-001",
@@ -195,20 +195,20 @@
   },
   {
     "id": "WS-009",
-    "title": "AlÃ§adas de AprovaÃ§Ã£o e Escalada de DecisÃµes",
+    "title": "AlÃÂ§adas de AprovaÃÂ§ÃÂ£o e Escalada de DecisÃÂµes",
     "category": "atendimento",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
-    "owner": "CoordenaÃ§Ã£o WS / Diretoria",
+    "owner": "CoordenaÃÂ§ÃÂ£o WS / Diretoria",
     "updatedAt": "2025-03-05",
-    "summary": "O que o consultor decide autonomamente vs. o que requer coordenaÃ§Ã£o ou diretoria.",
-    "definition": "Consultor: autonomia em rebalanceamentos dentro do SAE ([[WS-007]]) e rotina operacional. CoordenaÃ§Ã£o aprova: elegibilidade limÃ­trofe ([[WS-001]]), exceÃ§Ãµes de perfil ([[WS-006]]), prorrogaÃ§Ãµes de onboarding ([[WS-002]]). Diretoria aprova: exceÃ§Ãµes de fee ([[WS-003]]), rescisÃµes atÃ­picas ([[WS-008]]), casos regulatÃ³rios. Resposta da coordenaÃ§Ã£o: atÃ© 2 dias Ãºteis. Escaladas documentadas conforme [[WS-010]].",
+    "summary": "O que o consultor decide autonomamente vs. o que requer coordenaÃÂ§ÃÂ£o ou diretoria.",
+    "definition": "Consultor: autonomia em rebalanceamentos dentro do SAE ([[WS-007]]) e rotina operacional. CoordenaÃÂ§ÃÂ£o aprova: elegibilidade limÃÂ­trofe ([[WS-001]]), exceÃÂ§ÃÂµes de perfil ([[WS-006]]), prorrogaÃÂ§ÃÂµes de onboarding ([[WS-002]]). Diretoria aprova: exceÃÂ§ÃÂµes de fee ([[WS-003]]), rescisÃÂµes atÃÂ­picas ([[WS-008]]), casos regulatÃÂ³rios. Resposta da coordenaÃÂ§ÃÂ£o: atÃÂ© 2 dias ÃÂºteis. Escaladas documentadas conforme [[WS-010]].",
     "criteria": [
       "Consultor: autonomia em rebalanceamentos SAE e rotina",
-      "CoordenaÃ§Ã£o: elegibilidade limÃ­trofe, exceÃ§Ãµes de perfil, prorrogaÃ§Ãµes",
-      "Diretoria: exceÃ§Ãµes de fee, rescisÃµes atÃ­picas, regulatÃ³rio",
-      "Resposta da coordenaÃ§Ã£o: atÃ© 2 dias Ãºteis",
+      "CoordenaÃÂ§ÃÂ£o: elegibilidade limÃÂ­trofe, exceÃÂ§ÃÂµes de perfil, prorrogaÃÂ§ÃÂµes",
+      "Diretoria: exceÃÂ§ÃÂµes de fee, rescisÃÂµes atÃÂ­picas, regulatÃÂ³rio",
+      "Resposta da coordenaÃÂ§ÃÂ£o: atÃÂ© 2 dias ÃÂºteis",
       "Escaladas documentadas no CRM (WS-010)"
     ],
     "related": [
@@ -223,21 +223,21 @@
   },
   {
     "id": "WS-010",
-    "title": "Registro de OperaÃ§Ãµes e DocumentaÃ§Ã£o no CRM",
+    "title": "Registro de OperaÃÂ§ÃÂµes e DocumentaÃÂ§ÃÂ£o no CRM",
     "category": "compliance",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
     "owner": "Compliance / TI",
     "updatedAt": "2025-02-25",
-    "summary": "PadrÃ£o de registro no CRM para rastreabilidade e auditoria regulatÃ³ria.",
-    "definition": "Todo contato relevante registrado em atÃ© 24h. ObrigatÃ³rios: reuniÃµes ([[WS-005]]), suitability ([[WS-006]]), propostas e consentimentos, escaladas ([[WS-009]]), encerramentos ([[WS-008]]). Campos: data, tipo, canal, conteÃºdo, decisÃµes e prÃ³ximos passos. Registros incompletos impactam avaliaÃ§Ã£o. Auditorias mensais internas.",
+    "summary": "PadrÃÂ£o de registro no CRM para rastreabilidade e auditoria regulatÃÂ³ria.",
+    "definition": "Todo contato relevante registrado em atÃÂ© 24h. ObrigatÃÂ³rios: reuniÃÂµes ([[WS-005]]), suitability ([[WS-006]]), propostas e consentimentos, escaladas ([[WS-009]]), encerramentos ([[WS-008]]). Campos: data, tipo, canal, conteÃÂºdo, decisÃÂµes e prÃÂ³ximos passos. Registros incompletos impactam avaliaÃÂ§ÃÂ£o. Auditorias mensais internas.",
     "criteria": [
-      "Prazo de registro: 24h apÃ³s interaÃ§Ã£o relevante",
-      "ObrigatÃ³rios: reuniÃµes, suitability, propostas, escaladas, encerramentos",
-      "Campos: data, tipo, canal, conteÃºdo, decisÃµes, prÃ³ximos passos",
+      "Prazo de registro: 24h apÃÂ³s interaÃÂ§ÃÂ£o relevante",
+      "ObrigatÃÂ³rios: reuniÃÂµes, suitability, propostas, escaladas, encerramentos",
+      "Campos: data, tipo, canal, conteÃÂºdo, decisÃÂµes, prÃÂ³ximos passos",
       "Auditoria interna mensal",
-      "Dados disponÃ­veis para CVM e ANBIMA"
+      "Dados disponÃÂ­veis para CVM e ANBIMA"
     ],
     "related": [
       "WS-005",
@@ -248,21 +248,21 @@
   },
   {
     "id": "WS-011",
-    "title": "VedaÃ§Ã£o a Conflito de Interesses e IndependÃªncia",
+    "title": "VedaÃÂ§ÃÂ£o a Conflito de Interesses e IndependÃÂªncia",
     "category": "compliance",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "critica",
     "owner": "Compliance / Diretoria",
     "updatedAt": "2025-03-22",
-    "summary": "VedaÃ§Ãµes expressas a qualquer relaÃ§Ã£o que gere conflito com o interesse do cliente.",
-    "definition": "O CDV nÃ£o tem exclusividade com corretoras, bancos ou gestoras. Vedado: receber vantagem de terceiros por indicaÃ§Ã£o de produtos; recomendar ativos com viÃ©s de benefÃ­cio prÃ³prio; pressionar o cliente em detrimento de seu interesse. O modelo fee-based Ã© o mecanismo central de alinhamento. Suspeita de conflito: reportar ao compliance via [[WS-009]]. ViolaÃ§Ã£o: passÃ­vel de desligamento imediato.",
+    "summary": "VedaÃÂ§ÃÂµes expressas a qualquer relaÃÂ§ÃÂ£o que gere conflito com o interesse do cliente.",
+    "definition": "O CDV nÃÂ£o tem exclusividade com corretoras, bancos ou gestoras. Vedado: receber vantagem de terceiros por indicaÃÂ§ÃÂ£o de produtos; recomendar ativos com viÃÂ©s de benefÃÂ­cio prÃÂ³prio; pressionar o cliente em detrimento de seu interesse. O modelo fee-based ÃÂ© o mecanismo central de alinhamento. Suspeita de conflito: reportar ao compliance via [[WS-009]]. ViolaÃÂ§ÃÂ£o: passÃÂ­vel de desligamento imediato.",
     "criteria": [
       "CDV sem exclusividade com corretoras ou gestoras",
-      "Proibido receber vantagem de terceiros por indicaÃ§Ã£o",
+      "Proibido receber vantagem de terceiros por indicaÃÂ§ÃÂ£o",
       "Fee-based: alinhamento estrutural de interesses",
       "Suspeita de conflito: reportar ao compliance (WS-009)",
-      "ViolaÃ§Ã£o: passÃ­vel de desligamento imediato"
+      "ViolaÃÂ§ÃÂ£o: passÃÂ­vel de desligamento imediato"
     ],
     "related": [
       "WS-003",
@@ -271,43 +271,25 @@
   },
   {
     "id": "WS-012",
-    "title": "DiferenciaÃ§Ã£o WA Ã WM: Escopo e Limites de AtuaÃ§Ã£o",
+    "title": "DiferenciaÃÂ§ÃÂ£o WA ÃÂ WM: Escopo e Limites de AtuaÃÂ§ÃÂ£o",
     "category": "atendimento",
     "scope": "ambos",
     "status": "ativa",
     "criticidade": "",
-    "owner": "CoordenaÃ§Ã£o WS",
+    "owner": "CoordenaÃÂ§ÃÂ£o WS",
     "updatedAt": "2025-01-15",
-    "summary": "Delimita o que cada produto inclui e o que estÃ¡ fora do escopo.",
-    "definition": "Wealth Advisor (WA): consultoria â cliente executa todas as movimentaÃ§Ãµes. Consultor visualiza a carteira via vinculaÃ§Ã£o, nunca movimenta. Wealth Management (WM): gestÃ£o â planejador certificado executa com procuraÃ§Ã£o especÃ­fica. WM inclui planejamento tributÃ¡rio, previdenciÃ¡rio e sucessÃ³rio (\"CFO da vida\"). MigraÃ§Ã£o WA â WM via [[WS-009]]. PatrimÃ´nio mÃ­nimo em [[WS-001]].",
+    "summary": "Delimita o que cada produto inclui e o que estÃÂ¡ fora do escopo.",
+    "definition": "Wealth Advisor (WA): consultoria Ã¢ÂÂ cliente executa todas as movimentaÃÂ§ÃÂµes. Consultor visualiza a carteira via vinculaÃÂ§ÃÂ£o, nunca movimenta. Wealth Management (WM): gestÃÂ£o Ã¢ÂÂ planejador certificado executa com procuraÃÂ§ÃÂ£o especÃÂ­fica. WM inclui planejamento tributÃÂ¡rio, previdenciÃÂ¡rio e sucessÃÂ³rio (\"CFO da vida\"). MigraÃÂ§ÃÂ£o WA Ã¢ÂÂ WM via [[WS-009]]. PatrimÃÂ´nio mÃÂ­nimo em [[WS-001]].",
     "criteria": [
-      "WA: consultoria â cliente executa todas movimentaÃ§Ãµes",
+      "WA: consultoria Ã¢ÂÂ cliente executa todas movimentaÃÂ§ÃÂµes",
       "WA: consultor visualiza, nunca movimenta",
-      "WM: gestÃ£o com procuraÃ§Ã£o especÃ­fica",
-      "WM: inclui planejamento tributÃ¡rio, previdenciÃ¡rio e sucessÃ³rio",
-      "MigraÃ§Ã£o WA â WM: via coordenaÃ§Ã£o (WS-009)"
+      "WM: gestÃÂ£o com procuraÃÂ§ÃÂ£o especÃÂ­fica",
+      "WM: inclui planejamento tributÃÂ¡rio, previdenciÃÂ¡rio e sucessÃÂ³rio",
+      "MigraÃÂ§ÃÂ£o WA Ã¢ÂÂ WM: via coordenaÃÂ§ÃÂ£o (WS-009)"
     ],
     "related": [
       "WS-001",
       "WS-009"
-    ]
-  },
-  {
-    "id": "1234",
-    "title": "TESTE",
-    "category": "onboarding",
-    "scope": "ambos",
-    "status": "ativa",
-    "criticidade": "",
-    "owner": "DE",
-    "updatedAt": "2026-04-04",
-    "summary": "DAWD",
-    "definition": "DAWDWQ[[WS-001]]",
-    "criteria": [
-      "TESTE"
-    ],
-    "related": [
-      "WS-001"
     ]
   }
 ]
