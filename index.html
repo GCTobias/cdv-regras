@@ -348,7 +348,7 @@
   </div>
   <div class="header-right">
     <div id="authStatus"></div>
-    <button class="btn-add" style="background:var(--navy-mid);border:1px solid rgba(255,255,255,.15)" onclick="openYamlModal()">📄 Importar YAML</button>
+    <button class="btn-add" style="background:var(--navy-mid);border:1px solid rgba(255,255,255,.15);color:#fff" onclick="openYamlModal()">📄 Importar YAML</button>
     <button class="btn-add" onclick="openModal()">＋ Nova Regra</button>
   </div>
 </header>
@@ -401,7 +401,7 @@
       <div class="form-group"><label class="form-label">Resumo (tooltip)</label><input class="form-input" id="fSummary" placeholder="Uma frase descrevendo o objetivo"></div>
       <div class="form-group">
         <label class="form-label">Definição & Detalhamento</label>
-        <div class="def-hint">💡 Digite <strong>/</strong> para buscar e citar uma regra. Ex: <code>elegibilidade /WS-001</code> → vira link clicável com o texto "elegibilidade".</div>
+        <div class="def-hint">💡 Digite <strong>/</strong> para buscar e citar uma regra. O código aparece no texto — passe o mouse para ver a descrição.</div>
         <div class="def-editor-wrap">
           <textarea class="form-textarea" id="fDefinition" style="min-height:130px" placeholder="Detalhe a regra aqui. Digite / para citar outra regra pelo código ou nome..." oninput="onDefInput(this)" onkeydown="onDefKey(event)"></textarea>
           <div class="mention-dropdown" id="mentionDropdown"></div>
@@ -868,9 +868,7 @@ function insertMention(e, ruleId){
   const ta=document.getElementById('fDefinition');
   const val=ta.value, pos=ta.selectionStart;
   const before=val.slice(0,_mentionStart);
-  const labelRaw=val.slice(_mentionStart+1,pos);
-  const cleanLabel=labelRaw.replace(/[A-Z]{2}-\d+/i,'').trim();
-  const insertion=cleanLabel?`[${cleanLabel}][[${ruleId}]]`:`[[${ruleId}]]`;
+  const insertion=`[[${ruleId}]]`;
   const after=val.slice(pos);
   ta.value=before+insertion+after;
   const newPos=before.length+insertion.length;
