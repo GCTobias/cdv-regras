@@ -57,9 +57,9 @@
   {
     "id": "WS-0003",
     "title": "Cliente",
-    "status": "ativa",
+    "status": "inativa",
     "createdAt": "2026-04-05T13:03:36.901Z",
-    "updatedAt": "2026-04-05T13:05:13.940Z",
+    "updatedAt": "2026-04-05T13:07:18.571Z",
     "summary": "Clientes que estão no CDV",
     "definition": "pela regra [[WS-0001]] tem que se ver os [[WS-0002]] [[CDV-0001]]",
     "criteria": [
