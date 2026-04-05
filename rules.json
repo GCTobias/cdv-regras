@@ -6,16 +6,14 @@
     "createdAt": "2026-04-04T10:00:00.000Z",
     "updatedAt": "2026-04-04T10:00:00.000Z",
     "summary": "Define o volume patrimonial mínimo investível para elegibilidade ao WA ou WM.",
-    "definition": "Somente clientes com patrimônio investível mínimo de R$ 300.000 são elegíveis ao Wealth Advisor. Para o Wealth Management, o mínimo é R$ 1.000.000. O patrimônio investível exclui imóveis e ativos ilíquidos, salvo aprovação da coordenação.",
+    "definition": "Somente clientes com patrimônio investível mínimo de R$ 300.000 são elegíveis ao Wealth Advisor. Para o Wealth Management, o mínimo é R$ 1.000.000. O patrimônio investível exclui imóveis e ativos ilíquidos, salvo aprovação da coordenação. A remuneração pelo serviço segue o modelo descrito em [[WS-0002]]. Todos os consultores devem observar as diretrizes de conduta de [[CDV-0001]] ao avaliar a elegibilidade.",
     "criteria": [
       "Wealth Advisor: mínimo R$ 300.000 investível",
       "Wealth Management: mínimo R$ 1.000.000 investível",
       "Imóveis e ativos ilíquidos não computam sem aprovação",
       "Comprovação obrigatória antes da contratação"
     ],
-    "related": [
-      "WS-0002"
-    ]
+    "related": ["WS-0002"]
   },
   {
     "id": "WS-0002",
@@ -24,16 +22,14 @@
     "createdAt": "2026-04-04T10:05:00.000Z",
     "updatedAt": "2026-04-04T10:05:00.000Z",
     "summary": "Fee-based sobre patrimônio, vedação a comissões e cashback 100% ao cliente.",
-    "definition": "O CDV opera 100% no modelo fee-based: percentual pré-acordado sobre o volume de ativos. É vedado receber comissionamento, rebate ou bonificação de terceiros. O cashback é integralmente revertido ao cliente.",
+    "definition": "O CDV opera 100% no modelo fee-based: percentual pré-acordado sobre o volume de ativos. É vedado receber comissionamento, rebate ou bonificação de terceiros. O cashback é integralmente revertido ao cliente. Este modelo se aplica a todos os clientes que atendem o critério patrimonial de [[WS-0001]]. Qualquer exceção à tabela de fees deve ser tratada conforme [[CDV-0001]].",
     "criteria": [
       "Fee exclusivamente sobre patrimônio",
       "Vedação absoluta a comissões de terceiros",
       "Cashback 100% revertido ao cliente",
       "Tabela de fees definida pela Diretoria"
     ],
-    "related": [
-      "WS-0001"
-    ]
+    "related": ["WS-0001"]
   },
   {
     "id": "CDV-0001",
@@ -42,7 +38,7 @@
     "createdAt": "2026-04-04T10:10:00.000Z",
     "updatedAt": "2026-04-04T10:10:00.000Z",
     "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
-    "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar.",
+    "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar. Esta conduta se aplica em especial nas avaliações de elegibilidade descritas em [[WS-0001]] e na aplicação do modelo de remuneração de [[WS-0002]].",
     "criteria": [
       "Agir com integridade em todas as interações",
       "Reportar conflitos de interesse imediatamente",
@@ -50,22 +46,5 @@
       "Manter sigilo sobre informações confidenciais"
     ],
     "related": []
-  },
-  {
-    "id": "WS-0003",
-    "title": "teste",
-    "status": "inativa",
-    "createdAt": "2026-04-05T13:17:12.755Z",
-    "updatedAt": "2026-04-05T13:17:12.755Z",
-    "summary": "teste",
-    "definition": "[[WS-0002]] e [[CDV-0001]] reste",
-    "criteria": [
-      "eeeeeeeeeeeeeeeeeeeeeeeee",
-      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    ],
-    "related": [
-      "WS-0002",
-      "CDV-0001"
-    ]
   }
 ]
