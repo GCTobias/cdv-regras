@@ -878,7 +878,7 @@ function insertMention(e, ruleId){
   closeMention();updateRelatedPreview();ta.focus();
 }
 function closeMention(){ document.getElementById('mentionDropdown').classList.remove('open');_mentionStart=-1;_mentionMatches=[]; }
-function extractRefs(text){ const m=[...text.matchAll(/\[\[([A-Z]{2}-\d+)\]\]/g)];return[...new Set(m.map(x=>x[1]))]; }
+function extractRefs(text){ const m=[...text.matchAll(/\[\[([A-Z]+-\d+)\]\]/g)];return[...new Set(m.map(x=>x[1]))]; }
 function updateRelatedPreview(){
   const text=document.getElementById('fDefinition').value;
   const refs=extractRefs(text);
@@ -895,7 +895,7 @@ document.addEventListener('click',e=>{ if(!e.target.closest('.def-editor-wrap'))
 
 // ── TOOLTIP REFS ──
 function processRef(text){
-  return text.replace(/(?:\[([^\]]+)\])?\[\[([A-Z]{2}-\d+)\]\]/g,(_,label,id)=>{
+  return text.replace(/(?:\[([^\]]+)\])?\[\[([A-Z]+-\d+)\]\]/g,(_,label,id)=>{
     const ref=rules.find(r=>r.id===id);
     const display=label||id;
     if(!ref)return`<span class="rule-ref ref-active">${display}</span>`;
