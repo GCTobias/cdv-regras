@@ -785,9 +785,13 @@ function renderContent(){
         </div>
         <div class="rule-meta-line">
           <span class="rule-code-badge">${rule.id}</span>
-          <span class="badge ${rule.status||'ativa'}">${rule.status==='inativa'?'Inativa':'Ativa'}</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;${rule.status==='inativa'?'background:var(--gray-100);color:var(--gray-500);border:1px solid var(--gray-200)':'background:var(--green-pale);color:var(--green);border:1px solid var(--green-border)'}">
+            <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>
+            ${rule.status==='inativa'?'Inativa':'Ativa'}
+          </span>
         </div>
         <div class="rule-title">${rule.title}</div>
+        ${rule.status==='inativa'?`<div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:8px;padding:10px 16px;margin-bottom:16px;font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:8px">⚠️ Esta regra está <strong>inativa</strong> e não está em vigor.</div>`:''}
         <div class="rule-owners">
           <span class="owner-tag">🕐 Criado em ${fmtDatetime(rule.createdAt)}</span>
           <span class="owner-tag">✏️ Modificado em ${fmtDatetime(rule.updatedAt)}</span>
@@ -814,7 +818,6 @@ function renderContent(){
             <div class="related-item" onclick="openRule('${rel.id}')">
               <span class="related-code">${rel.id}</span>
               <span class="related-title">${rel.title}</span>
-              <span class="badge ${rel.scope}" style="flex-shrink:0">${SCOPE_LABELS[rel.scope]}</span>
               <span class="related-arrow">→</span>
             </div>`).join('')}</div>
         </div>`:''}
