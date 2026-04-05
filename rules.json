@@ -2,8 +2,7 @@
   {
     "id": "WS-0001",
     "title": "Patrimônio Mínimo para Acesso ao Wealth Services",
-    "scope": "ambos",
-    "owner": "Coordenação WS",
+    "status": "ativa",
     "createdAt": "2026-04-04T10:00:00.000Z",
     "updatedAt": "2026-04-04T10:00:00.000Z",
     "summary": "Define o volume patrimonial mínimo investível para elegibilidade ao WA ou WM.",
@@ -14,15 +13,12 @@
       "Imóveis e ativos ilíquidos não computam sem aprovação",
       "Comprovação obrigatória antes da contratação"
     ],
-    "related": [
-      "WS-0002"
-    ]
+    "related": ["WS-0002"]
   },
   {
     "id": "WS-0002",
     "title": "Modelo de Remuneração Fee-Based e Transparência",
-    "scope": "ambos",
-    "owner": "Financeiro / Compliance",
+    "status": "ativa",
     "createdAt": "2026-04-04T10:05:00.000Z",
     "updatedAt": "2026-04-04T10:05:00.000Z",
     "summary": "Fee-based sobre patrimônio, vedação a comissões e cashback 100% ao cliente.",
@@ -33,15 +29,12 @@
       "Cashback 100% revertido ao cliente",
       "Tabela de fees definida pela Diretoria"
     ],
-    "related": [
-      "WS-0001"
-    ]
+    "related": ["WS-0001"]
   },
   {
     "id": "CDV-0001",
     "title": "Código de Conduta e Ética Profissional",
-    "scope": "ambos",
-    "owner": "Diretoria / Compliance",
+    "status": "ativa",
     "createdAt": "2026-04-04T10:10:00.000Z",
     "updatedAt": "2026-04-04T10:10:00.000Z",
     "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
@@ -53,22 +46,5 @@
       "Manter sigilo sobre informações confidenciais"
     ],
     "related": []
-  },
-  {
-    "id": "WS-0003",
-    "title": "Cliente",
-    "status": "inativa",
-    "createdAt": "2026-04-05T13:03:36.901Z",
-    "updatedAt": "2026-04-05T13:07:18.571Z",
-    "summary": "Clientes que estão no CDV",
-    "definition": "pela regra [[WS-0001]] tem que se ver os [[WS-0002]] [[CDV-0001]]",
-    "criteria": [
-      "parimonio cma de 100k e que sao clientes ativos no cdv desde 2025",
-      "brasileiros"
-    ],
-    "related": [
-      "WS-0001",
-      "WS-0002"
-    ]
   }
 ]
