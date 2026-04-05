@@ -862,7 +862,7 @@ function renderMentionDropdown(ta, query){
   dd.innerHTML=_mentionMatches.map((r,i)=>`
     <div class="mention-item ${i===_mentionSelIdx?'sel':''}" onmousedown="insertMention(event,'${r.id}')">
       <span class="mention-code">${r.id}</span>
-      <div><div class="mention-title">${hl(r.title,query)}</div><div class="mention-cat">${CAT_LABELS[r.category]} · ${SCOPE_LABELS[r.scope]}</div></div>
+      <div><div class="mention-title">${hl(r.title,query)}</div><div class="mention-cat" style="color:${r.status==='inativa'?'#f87171':'#4ade80'}">${r.status==='inativa'?'Inativa':'Ativa'}</div></div>
     </div>`).join('');
   dd.classList.add('open');
 }
@@ -912,10 +912,9 @@ function processRef(text){
     return`<span class="tooltip-container">
       <span class="rule-ref ref-active" onclick="openRule('${id}')">${display}</span>
       <div class="tooltip-box">
-        <div class="tt-code">${ref.id}</div>
+        <div class="tt-code">${ref.id} <span style="font-size:10px;font-weight:600;color:${ref.status==='inativa'?'#f87171':'#4ade80'};margin-left:4px">${ref.status==='inativa'?'Inativa':'Ativa'}</span></div>
         <div class="tt-title">${ref.title}</div>
         <div class="tt-summary">${ref.summary}</div>
-        <div class="tt-scope"><span class="badge ${ref.scope}" style="font-size:10px">${SCOPE_LABELS[ref.scope]}</span></div>
         <div class="tt-hint">↗ Clique para abrir em nova aba</div>
       </div>
     </span>`;
