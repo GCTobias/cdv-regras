@@ -13,7 +13,9 @@
       "Imóveis e ativos ilíquidos não computam sem aprovação",
       "Comprovação obrigatória antes da contratação"
     ],
-    "related": ["WS-0002"]
+    "related": [
+      "WS-0002"
+    ]
   },
   {
     "id": "WS-0002",
@@ -29,7 +31,9 @@
       "Cashback 100% revertido ao cliente",
       "Tabela de fees definida pela Diretoria"
     ],
-    "related": ["WS-0001"]
+    "related": [
+      "WS-0001"
+    ]
   },
   {
     "id": "CDV-0001",
@@ -46,5 +50,22 @@
       "Manter sigilo sobre informações confidenciais"
     ],
     "related": []
+  },
+  {
+    "id": "WS-0003",
+    "title": "teste",
+    "status": "inativa",
+    "createdAt": "2026-04-05T13:17:12.755Z",
+    "updatedAt": "2026-04-05T13:17:12.755Z",
+    "summary": "teste",
+    "definition": "[[WS-0002]] e [[CDV-0001]] reste",
+    "criteria": [
+      "eeeeeeeeeeeeeeeeeeeeeeeee",
+      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    ],
+    "related": [
+      "WS-0002",
+      "CDV-0001"
+    ]
   }
 ]
