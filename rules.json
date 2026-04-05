@@ -58,9 +58,9 @@
   {
     "id": "WS-0003",
     "title": "yrd",
-    "status": "ativa",
+    "status": "inativa",
     "createdAt": "2026-04-05T13:29:43.872Z",
-    "updatedAt": "2026-04-05T13:29:43.872Z",
+    "updatedAt": "2026-04-05T13:30:15.472Z",
     "summary": "testeee",
     "definition": "[[CDV-0001]] [[WS-0001]]",
     "criteria": [
