@@ -59,15 +59,16 @@
     "title": "Cliente",
     "status": "ativa",
     "createdAt": "2026-04-05T13:03:36.901Z",
-    "updatedAt": "2026-04-05T13:03:36.901Z",
+    "updatedAt": "2026-04-05T13:04:14.838Z",
     "summary": "Clientes que estão no CDV",
-    "definition": "pela regra [[WS-0001]] tem que se ver os [[CDV-0001]].",
+    "definition": "pela regra [[WS-0001]] tem que se ver os [[WS-0002]] [[CDV-0001]]",
     "criteria": [
       "parimonio cma de 100k",
       "brasileiros"
     ],
     "related": [
-      "WS-0001"
+      "WS-0001",
+      "WS-0002"
     ]
   }
 ]
