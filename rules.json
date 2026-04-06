@@ -90,6 +90,8 @@
     ],
     "related": [
       "CDV-0001"
-    ]
+    ],
+    "deleted": true,
+    "deletedAt": "2026-04-06"
   }
 ]
