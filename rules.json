@@ -79,13 +79,15 @@
     "title": "Teste",
     "status": "ativa",
     "createdAt": "2026-04-06T11:46:08.216Z",
-    "updatedAt": "2026-04-06T11:46:08.216Z",
+    "updatedAt": "2026-04-06T11:46:28.212Z",
     "summary": "Testes",
-    "definition": "freestar\n\nfreestar\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fringilla a sem in sagittis. Praesent eget lorem eleifend, dignissim augue aliquam, interdum ante. Donec sapien nisl, imperdiet non mauris vel, tincidunt fermentum neque. Cras rutrum justo sit amet tortor laoreet molestie. Quisque id eleifend neque. Suspendisse id tortor at magna rhoncus dictum vitae et nisl. Etiam scelerisque justo ut volutpat scelerisque. Sed id sollicitudin neque, vel faucibus mi. Pellentesque justo ex, scelerisque sed ipsum non, convallis vulputate odio. Curabitur a massa sollicitudin, aliquam quam ut, iaculis nunc. Vestibulum euismod feugiat iaculis. Donec sit amet venenatis magna, eget dictum nisl. Vestibulum eu porttitor urna. Suspendisse potenti.",
+    "definition": "freestar\n\nfreestar\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fringilla a sem in sagittis. Praesent eget lorem eleifend, dignissim augue aliquam, interdum ante. Donec sapien nisl, imperdiet non mauris vel, tincidunt fermentum neque. Cras rutrum justo sit amet tortor laoreet molestie. Quisque id eleifend neque. Suspendisse id tortor at magna rhoncus dictum vitae et nisl. Etiam scelerisque justo ut volutpat scelerisque. Sed id sollicitudin neque, vel faucibus mi. Pellentesque justo ex, scelerisque sed ipsum non, convallis vulputate odio. Curabitur a massa sollicitudin, aliquam quam ut, iaculis nunc. Vestibulum euismod feugiat iaculis. Donec sit amet venenatis magna, eget dictum nisl. Vestibulum eu porttitor urna. Suspendisse potenti. [[CDV-0001]]",
     "criteria": [
       "Ver se o cliente esta vivo",
       "Ver o PL do cliente"
     ],
-    "related": []
+    "related": [
+      "CDV-0001"
+    ]
   }
 ]
