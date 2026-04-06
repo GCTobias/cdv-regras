@@ -22,9 +22,9 @@
     "title": "Modelo de Remuneração Fee-Based e Transparência",
     "status": "ativa",
     "createdAt": "2026-04-04T10:05:00.000Z",
-    "updatedAt": "2026-04-04T10:05:00.000Z",
+    "updatedAt": "2026-04-06T11:46:43.722Z",
     "summary": "Fee-based sobre patrimônio, vedação a comissões e cashback 100% ao cliente.",
-    "definition": "O CDV opera 100% no modelo fee-based: percentual pré-acordado sobre o volume de ativos. É vedado receber comissionamento, rebate ou bonificação de terceiros. O cashback é integralmente revertido ao cliente. Este modelo se aplica a todos os clientes que atendem o critério patrimonial de [[WS-0001]]. Qualquer exceção à tabela de fees deve ser tratada conforme [[CDV-0001]].",
+    "definition": "O CDV opera 100% no modelo fee-based: percentual pré-acordado sobre o volume de ativos. É vedado receber comissionamento, rebate ou bonificação de terceiros. O cashback é integralmente revertido ao cliente. Este modelo se aplica a todos os clientes que atendem o critério patrimonial de [[WS-0001]]. Qualquer exceção à tabela de fees deve ser tratada conforme [[CDV-0001]]. [[WS-0004]]",
     "criteria": [
       "Fee exclusivamente sobre patrimônio",
       "Vedação absoluta a comissões de terceiros",
@@ -32,7 +32,9 @@
       "Tabela de fees definida pela Diretoria"
     ],
     "related": [
-      "WS-0001"
+      "WS-0001",
+      "CDV-0001",
+      "WS-0004"
     ]
   },
   {
