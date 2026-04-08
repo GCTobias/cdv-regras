@@ -490,15 +490,15 @@
 
 <!-- MODAL HISTÓRICO -->
 <div class="modal-overlay" id="historyOverlay" onclick="closeHistory()">
-  <div class="modal" style="width:700px;max-height:85vh;display:flex;flex-direction:column" onclick="event.stopPropagation()">
-    <div class="modal-header">
+  <div class="modal" style="width:700px;height:85vh;overflow:hidden;display:flex;flex-direction:column" onclick="event.stopPropagation()">
+    <div class="modal-header" style="flex-shrink:0">
       <div style="display:flex;align-items:center;gap:10px">
         <span style="font-size:20px">🕐</span>
         <span class="modal-title" id="historyTitle">Histórico</span>
       </div>
       <div class="btn-icon" onclick="closeHistory()">✕</div>
     </div>
-    <div class="modal-body" id="historyBody" style="overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:16px"></div>
+    <div id="historyBody" style="overflow-y:auto;flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:16px"></div>
   </div>
 </div>
 
@@ -1063,19 +1063,26 @@ async function deleteCurrentRule(){
   }
 }
 
+let _historyRuleId=null;
 function openHistory(id){
+  _historyRuleId=id;
   const rule=rules.find(r=>r.id===id);if(!rule)return;
-  const history=[...(rule.history||[])].reverse(); // mais recente primeiro
+  const orig=rule.history||[];
+  const history=[...orig].reverse(); // mais recente primeiro; índice i → orig[orig.length-1-i]
   document.getElementById('historyTitle').textContent=`Histórico — ${rule.id}`;
   const body=document.getElementById('historyBody');
-  if(!history.length){body.innerHTML='<p style="color:var(--gray-400);font-size:13px">Nenhuma versão anterior registrada.</p>';
+  if(!history.length){
+    body.innerHTML='<p style="color:var(--gray-400);font-size:13px">Nenhuma versão anterior registrada.</p>';
   }else{
     body.innerHTML=history.map((h,i)=>{
-      const isLast=i===history.length-1;
+      const origIdx=orig.length-1-i;
       return`<div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--gray-50);border-bottom:1px solid var(--border)">
-          <span style="font-size:12px;font-weight:700;color:var(--gray-600)">Versão ${history.length-i} de ${history.length}</span>
-          <span style="font-size:11px;color:var(--gray-400)">${fmtDatetime(h.savedAt)}</span>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:12px;font-weight:700;color:var(--gray-600)">Versão ${orig.length-i} de ${orig.length}</span>
+            <span style="font-size:11px;color:var(--gray-400)">${fmtDatetime(h.savedAt)}</span>
+          </div>
+          <button onclick="restoreVersion('${id}',${origIdx})" style="font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;border:1px solid var(--amber-border);background:#fffbeb;color:#92400e;cursor:pointer">↩ Restaurar esta versão</button>
         </div>
         <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
           <div><span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Título</span><div style="font-size:13px;font-weight:600;margin-top:2px">${h.title}</div></div>
@@ -1094,6 +1101,27 @@ function openHistory(id){
 }
 function closeHistory(){
   document.getElementById('historyOverlay').classList.remove('open');
+}
+async function restoreVersion(id, histIdx){
+  if(!confirm('Restaurar esta versão? A versão atual será salva no histórico antes de ser substituída.'))return;
+  const idx=rules.findIndex(r=>r.id===id);if(idx===-1)return;
+  const rule=rules[idx];
+  const snap=rule.history[histIdx];if(!snap)return;
+  // salva estado atual no histórico antes de restaurar
+  const currentSnap={savedAt:rule.updatedAt,title:rule.title,status:rule.status,summary:rule.summary,definition:rule.definition,criteria:[...(rule.criteria||[])],related:[...(rule.related||[])]};
+  const newHistory=[...rule.history,currentSnap];
+  rules[idx]={...rule,title:snap.title,status:snap.status,summary:snap.summary,definition:snap.definition,criteria:[...(snap.criteria||[])],related:[...(snap.related||[])],updatedAt:new Date().toISOString(),history:newHistory};
+  showToast('Restaurando versão…');
+  const ok=await saveToGitHub('restore '+id+' to version '+fmtDatetime(snap.savedAt));
+  if(ok){
+    closeHistory();renderList();renderContent();
+    showToast('Versão restaurada!','ok');
+    // reabre histórico com dados atualizados
+    setTimeout(()=>openHistory(id),300);
+  } else {
+    rules[idx]=rule;
+    showToast('Erro ao restaurar','err');
+  }
 }
 
 function setSaving(on){
