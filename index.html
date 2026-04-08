@@ -1076,7 +1076,7 @@ function openHistory(id){
   }else{
     body.innerHTML=history.map((h,i)=>{
       const origIdx=orig.length-1-i;
-      return`<div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
+      return`<div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;flex-shrink:0">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--gray-50);border-bottom:1px solid var(--border)">
           <div style="display:flex;align-items:center;gap:10px">
             <span style="font-size:12px;font-weight:700;color:var(--gray-600)">Versão ${orig.length-i} de ${orig.length}</span>
