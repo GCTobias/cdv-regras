@@ -42,9 +42,9 @@
     "title": "Código de Conduta e Ética Profissional",
     "status": "ativa",
     "createdAt": "2026-04-04T10:10:00.000Z",
-    "updatedAt": "2026-04-08T09:33:14.666Z",
+    "updatedAt": "2026-04-08T09:35:49.755Z",
     "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
-    "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar. Esta conduta se aplica em especial nas avaliações de elegibilidade descritas em [[WS-0001]] e na aplicação do modelo de remuneração de [[WS-0002]]. É legal!! Muito legal!!",
+    "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar. Esta conduta se aplica em especial nas avaliações de elegibilidade descritas em [[WS-0001]] e na aplicação do modelo de remuneração de [[WS-0002]].",
     "criteria": [
       "Agir com integridade em todas as interações",
       "Reportar conflitos de interesse imediatamente",
@@ -102,6 +102,25 @@
         "status": "ativa",
         "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
         "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar. Esta conduta se aplica em especial nas avaliações de elegibilidade descritas em [[WS-0001]] e na aplicação do modelo de remuneração de [[WS-0002]]. É legal!!",
+        "criteria": [
+          "Agir com integridade em todas as interações",
+          "Reportar conflitos de interesse imediatamente",
+          "Nunca comprometer o interesse do cliente",
+          "Manter sigilo sobre informações confidenciais"
+        ],
+        "related": [
+          "WS-0001",
+          "WS-0002",
+          "WS-0005",
+          "WS-0003"
+        ]
+      },
+      {
+        "savedAt": "2026-04-08T09:33:14.666Z",
+        "title": "Código de Conduta e Ética Profissional",
+        "status": "ativa",
+        "summary": "Princípios de conduta que todo colaborador do CDV deve seguir.",
+        "definition": "Todo colaborador do Clube do Valor deve agir com integridade, transparência e respeito ao cliente. Conflitos de interesse devem ser reportados imediatamente à liderança. O cliente sempre vem em primeiro lugar. Esta conduta se aplica em especial nas avaliações de elegibilidade descritas em [[WS-0001]] e na aplicação do modelo de remuneração de [[WS-0002]]. É legal!! Muito legal!!",
         "criteria": [
           "Agir com integridade em todas as interações",
           "Reportar conflitos de interesse imediatamente",
