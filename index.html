@@ -488,6 +488,20 @@
   </div>
 </div>
 
+<!-- MODAL HISTÓRICO -->
+<div class="modal-overlay" id="historyOverlay" onclick="closeHistory()">
+  <div class="modal" style="width:700px;max-height:85vh;display:flex;flex-direction:column" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:20px">🕐</span>
+        <span class="modal-title" id="historyTitle">Histórico</span>
+      </div>
+      <div class="btn-icon" onclick="closeHistory()">✕</div>
+    </div>
+    <div class="modal-body" id="historyBody" style="overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:16px"></div>
+  </div>
+</div>
+
 <!-- SYNC TOAST -->
 <div class="sync-toast" id="syncToast"></div>
 
@@ -781,6 +795,7 @@ function renderContent(){
       <div class="rule-header">
         <div class="rule-actions">
           <div class="btn-icon" title="Editar regra" onclick="editRule('${rule.id}')">✏️</div>
+          ${(rule.history||[]).length?`<div class="btn-icon" title="Ver histórico de versões" onclick="openHistory('${rule.id}')">🕐</div>`:''}
           <div class="btn-icon" title="Voltar à tabela geral" onclick="goHome()">⊞</div>
         </div>
         <div class="rule-meta-line">
@@ -851,7 +866,7 @@ function onDefInput(ta){
   if(slashIdx===-1){closeMention();updateRelatedPreview();return;}
   const query=segment.slice(slashIdx+1);
   _mentionStart=lineStart+slashIdx;
-  _mentionMatches=rules.filter(r=>r.id.toLowerCase().includes(query.toLowerCase())||r.title.toLowerCase().includes(query.toLowerCase())).slice(0,8);
+  _mentionMatches=rules.filter(r=>!r.deleted&&(r.id.toLowerCase().includes(query.toLowerCase())||r.title.toLowerCase().includes(query.toLowerCase()))).slice(0,8);
   if(!_mentionMatches.length){closeMention();updateRelatedPreview();return;}
   _mentionSelIdx=0;
   renderMentionDropdown(ta, query);
@@ -908,7 +923,7 @@ function processRef(text){
     const ref=rules.find(r=>r.id===id);
     const display=label||id;
     if(!ref)return`<span class="rule-ref ref-active">${display}</span>`;
-    const inactive=ref.status==='inativa';
+    if(ref.deleted)return`<span class="rule-ref" style="text-decoration:line-through;color:var(--gray-400);cursor:default" title="${ref.id} — regra excluída">${display}</span>`;
     return`<span class="tooltip-container">
       <span class="rule-ref ref-active" onclick="openRule('${id}')">${display}</span>
       <div class="tooltip-box">
@@ -1015,7 +1030,10 @@ async function updateRule(id){
   const cr=document.getElementById('fCriteria').value.trim();
   const rel=document.getElementById('fRelated').value.trim();
   const prev={...rules[idx]};
-  rules[idx]={...rules[idx],title:document.getElementById('fTitle').value.trim(),status:document.getElementById('fStatus').value,updatedAt:new Date().toISOString(),summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[]};
+  // snapshot da versão anterior antes de salvar
+  const snapshot={savedAt:rules[idx].updatedAt,title:rules[idx].title,status:rules[idx].status,summary:rules[idx].summary,definition:rules[idx].definition,criteria:[...(rules[idx].criteria||[])],related:[...(rules[idx].related||[])]};
+  const history=[...(rules[idx].history||[]),snapshot];
+  rules[idx]={...rules[idx],title:document.getElementById('fTitle').value.trim(),status:document.getElementById('fStatus').value,updatedAt:new Date().toISOString(),summary:document.getElementById('fSummary').value.trim(),definition:document.getElementById('fDefinition').value.trim(),criteria:cr?cr.split('\n').map(s=>s.trim()).filter(Boolean):[],related:rel?rel.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[],history};
   setSaving(true);
   const ok=await saveToGitHub('update rule '+id);
   setSaving(false);
@@ -1043,6 +1061,39 @@ async function deleteCurrentRule(){
     rules[idx]=prev;
     document.getElementById('modalDeleteBtn').disabled=false;
   }
+}
+
+function openHistory(id){
+  const rule=rules.find(r=>r.id===id);if(!rule)return;
+  const history=[...(rule.history||[])].reverse(); // mais recente primeiro
+  document.getElementById('historyTitle').textContent=`Histórico — ${rule.id}`;
+  const body=document.getElementById('historyBody');
+  if(!history.length){body.innerHTML='<p style="color:var(--gray-400);font-size:13px">Nenhuma versão anterior registrada.</p>';
+  }else{
+    body.innerHTML=history.map((h,i)=>{
+      const isLast=i===history.length-1;
+      return`<div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--gray-50);border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:700;color:var(--gray-600)">Versão ${history.length-i} de ${history.length}</span>
+          <span style="font-size:11px;color:var(--gray-400)">${fmtDatetime(h.savedAt)}</span>
+        </div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+          <div><span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Título</span><div style="font-size:13px;font-weight:600;margin-top:2px">${h.title}</div></div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Status</span>
+            <span style="font-size:11px;font-weight:700;color:${h.status==='inativa'?'#f87171':'#4ade80'}">${h.status==='inativa'?'Inativa':'Ativa'}</span>
+          </div>
+          ${h.summary?`<div><span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Resumo</span><div style="font-size:12.5px;color:var(--gray-600);margin-top:2px">${h.summary}</div></div>`:''}
+          ${h.definition?`<div><span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Definição</span><div style="font-size:12px;color:var(--gray-600);margin-top:2px;white-space:pre-wrap;background:var(--gray-50);border:1px solid var(--border);border-radius:6px;padding:8px 10px">${h.definition}</div></div>`:''}
+          ${(h.criteria||[]).length?`<div><span style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Critérios</span><ul style="margin:4px 0 0 16px;font-size:12px;color:var(--gray-600)">${h.criteria.map(c=>`<li>${c}</li>`).join('')}</ul></div>`:''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('historyOverlay').classList.add('open');
+}
+function closeHistory(){
+  document.getElementById('historyOverlay').classList.remove('open');
 }
 
 function setSaving(on){
